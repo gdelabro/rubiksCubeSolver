@@ -4,6 +4,7 @@ void	usage()
 {
 	ft_printf("./rubik \"SCRAMBLE\"\nSCRAMBLE commands:\n\tF R U B L D\n\
 command suffix:\n\t': turn the other way\n\t2: turn twice\n");
+	exit(0);
 }
 
 void	init_cube(t_cube *cube)
@@ -34,13 +35,6 @@ void	init_cube(t_cube *cube)
 
 void	lunchAlgo(t_cube *cube)
 {
-	rotationR(cube);
-	rotationUP(cube);
-	rotationRP(cube);
-	rotationUP(cube);
-	rotationFP(cube);
-	rotationU(cube);
-	rotationF(cube);
 	showCube(cube);
 }
 
@@ -51,6 +45,7 @@ int		main(int ac, char **av)
 	if (ac < 2)
 		usage();
 	init_cube(&cube);
+	doAlgo(&cube, av[1], 3);
 	lunchAlgo(&cube);
 	return (1);
 }

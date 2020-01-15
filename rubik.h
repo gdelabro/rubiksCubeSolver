@@ -23,7 +23,18 @@ typedef struct		s_cube
 	int			buffer[3][3];		//rotation buffer
 }					t_cube;
 
+typedef struct		s_rotation
+{
+	char		rotType;
+	int			P;
+	int			two;
+}					t_rotation;
+
 void	showCube(t_cube *cube);
+void	usage();
+
+
+void	doAlgo(t_cube *cube, char *algo, int side);
 
 
 void	rotateFace(int *face);
