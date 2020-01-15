@@ -25,9 +25,34 @@ typedef struct		s_cube
 
 void	showCube(t_cube *cube);
 
-void	rotateFace(t_cube *cube);
-void	copyFaceToBuf(int face[3][3], t_cube *cube);
-void	copyBufToFront(t_cube *cube);
+
+void	rotateFace(int *face);
+void	rotateFace2(int *face);
+void	copyFaceToFace(int src[3][3], int *dest);
+
+
 void	rotationF(t_cube *cube);
+void	rotationFP(t_cube *cube);
+void	rotationF2(t_cube *cube);
+
+void	rotationR(t_cube *cube);
+void	rotationRP(t_cube *cube);
+void	rotationR2(t_cube *cube);
+
+void	rotationU(t_cube *cube);
+void	rotationUP(t_cube *cube);
+void	rotationU2(t_cube *cube);
+
+void	rotationB(t_cube *cube);
+void	rotationBP(t_cube *cube);
+void	rotationB2(t_cube *cube);
+
+void	rotationL(t_cube *cube);
+void	rotationLP(t_cube *cube);
+void	rotationL2(t_cube *cube);
+
+void	rotationD(t_cube *cube);
+void	rotationDP(t_cube *cube);
+void	rotationD2(t_cube *cube);
 
 #endif

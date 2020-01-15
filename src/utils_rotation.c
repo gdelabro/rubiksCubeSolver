@@ -1,43 +1,52 @@
 #include "../rubik.h"
 
-void	copyBufToFront(t_cube *cube)
+void	copyFaceToFace(int src[3][3], int *dest)
 {
-	cube->front[0][0] = cube->buffer[0][0];
-	cube->front[0][1] = cube->buffer[0][1];
-	cube->front[0][2] = cube->buffer[0][2];
-	cube->front[1][0] = cube->buffer[1][0];
-	cube->front[1][1] = cube->buffer[1][1];
-	cube->front[1][2] = cube->buffer[1][2];
-	cube->front[2][0] = cube->buffer[2][0];
-	cube->front[2][1] = cube->buffer[2][1];
-	cube->front[2][2] = cube->buffer[2][2];
+	*(dest + 0) = src[0][0];
+	*(dest + 1) = src[0][1];
+	*(dest + 2) = src[0][2];
+	*(dest + 3) = src[1][0];
+	*(dest + 4) = src[1][1];
+	*(dest + 5) = src[1][2];
+	*(dest + 6) = src[2][0];
+	*(dest + 7) = src[2][1];
+	*(dest + 8) = src[2][2];
 }
 
-void	copyFaceToBuf(int face[3][3], t_cube *cube)
-{
-	cube->buffer[0][0] = face[0][0];
-	cube->buffer[0][1] = face[0][1];
-	cube->buffer[0][2] = face[0][2];
-	cube->buffer[1][0] = face[1][0];
-	cube->buffer[1][1] = face[1][1];
-	cube->buffer[1][2] = face[1][2];
-	cube->buffer[2][0] = face[2][0];
-	cube->buffer[2][1] = face[2][1];
-	cube->buffer[2][2] = face[2][2];
-}
+/*    ->
+    O O O
+    O O O |
+    O O O v
+*/
 
-void	rotateFace(t_cube *cube)
+void	rotateFace(int *face)
 {
 	int		buffer[3][3];
 
-	buffer[0][0] = cube->buffer[2][0];
-	buffer[0][1] = cube->buffer[1][0];
-	buffer[0][2] = cube->buffer[0][0];
-	buffer[1][0] = cube->buffer[2][1];
-	buffer[1][1] = cube->buffer[1][1];
-	buffer[1][2] = cube->buffer[0][1];
-	buffer[2][0] = cube->buffer[2][2];
-	buffer[2][1] = cube->buffer[1][2];
-	buffer[2][2] = cube->buffer[0][2];
-	copyFaceToBuf(buffer, cube);
+	buffer[0][0] = *(face + 6);
+	buffer[0][1] = *(face + 3);
+	buffer[0][2] = *(face + 0);
+	buffer[1][0] = *(face + 7);
+	buffer[1][1] = *(face + 4);
+	buffer[1][2] = *(face + 1);
+	buffer[2][0] = *(face + 8);
+	buffer[2][1] = *(face + 5);
+	buffer[2][2] = *(face + 2);
+	copyFaceToFace(buffer, face);
+}
+
+void	rotateFace2(int *face)
+{
+	int		buffer[3][3];
+
+	buffer[0][0] = *(face + 2);
+	buffer[0][1] = *(face + 5);
+	buffer[0][2] = *(face + 8);
+	buffer[1][0] = *(face + 1);
+	buffer[1][1] = *(face + 4);
+	buffer[1][2] = *(face + 7);
+	buffer[2][0] = *(face + 0);
+	buffer[2][1] = *(face + 3);
+	buffer[2][2] = *(face + 6);
+	copyFaceToFace(buffer, face);
 }

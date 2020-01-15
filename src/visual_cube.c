@@ -19,7 +19,7 @@ void	print_face(int face[3][3])
 	while (++i < 3)
 	{
 		i2 = -1;
-		ft_printf("    ");
+		ft_printf("       ");
 		while (++i2 < 3)
 			print_piece(face[i][i2]);
 		ft_printf("\n");
@@ -27,7 +27,7 @@ void	print_face(int face[3][3])
 	ft_printf("\n");
 }
 
-void	print_2face(int face[3][3], int face2[3][3])
+void	print_3face(int face[3][3], int face2[3][3], int face3[3][3])
 {
 	int i;
 	int i2;
@@ -38,11 +38,15 @@ void	print_2face(int face[3][3], int face2[3][3])
 		i2 = -1;
 		while (++i2 < 3)
 			print_piece(face[i][i2]);
-		ft_printf("   ");
+		ft_printf(" ");
 		i2 = -1;
 		while (++i2 < 3)
 			print_piece(face2[i][i2]);
-		ft_printf("\n");
+		ft_printf(" ");
+		i2 = -1;
+		while (++i2 < 3)
+			print_piece(face3[i][i2]);
+			ft_printf("\n");
 	}
 	ft_printf("\n");
 }
@@ -52,8 +56,7 @@ void	showCube(t_cube *cube)
 	ft_printf("\e[1;1H\e[2J");
 	print_face(cube->back);
 	print_face(cube->top);
-	print_face(cube->front);
+	print_3face(cube->left, cube->front, cube->right);
 	print_face(cube->bottom);
-	ft_printf("\n\n");
-	print_2face(cube->left, cube->right);
+	usleep(1000000);
 }

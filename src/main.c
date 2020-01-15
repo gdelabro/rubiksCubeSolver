@@ -34,9 +34,12 @@ void	init_cube(t_cube *cube)
 
 void	lunchAlgo(t_cube *cube)
 {
-	cube->front[1][2] = ORANGE;
-	cube->front[0][0] = GREEN;
-	showCube(cube);
+	rotationR(cube);
+	rotationUP(cube);
+	rotationRP(cube);
+	rotationUP(cube);
+	rotationFP(cube);
+	rotationU(cube);
 	rotationF(cube);
 	showCube(cube);
 }
