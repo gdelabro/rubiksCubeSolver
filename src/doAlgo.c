@@ -28,47 +28,47 @@ void	transformRotation(t_rotation *rot, int side)
 	}
 }
 
-void	doRotation(t_cube *cube, t_rotation rot)
+void	doRotation(t_cube *cube, t_rotation rot, int aff)
 {
 	if (rot.rotType == 'F')
 	{
-		!rot.P && !rot.two ? rotationF(cube): 0;
-		rot.P && !rot.two ? rotationFP(cube): 0;
-		!rot.P && rot.two ? rotationF2(cube): 0;
+		!rot.P && !rot.two ? rotationF(cube, aff): 0;
+		rot.P && !rot.two ? rotationFP(cube, aff): 0;
+		!rot.P && rot.two ? rotationF2(cube, aff): 0;
 	}
 	if (rot.rotType == 'R')
 	{
-		!rot.P && !rot.two ? rotationR(cube): 0;
-		rot.P && !rot.two ? rotationRP(cube): 0;
-		!rot.P && rot.two ? rotationR2(cube): 0;
+		!rot.P && !rot.two ? rotationR(cube, aff): 0;
+		rot.P && !rot.two ? rotationRP(cube, aff): 0;
+		!rot.P && rot.two ? rotationR2(cube, aff): 0;
 	}
 	if (rot.rotType == 'U')
 	{
-		!rot.P && !rot.two ? rotationU(cube): 0;
-		rot.P && !rot.two ? rotationUP(cube): 0;
-		!rot.P && rot.two ? rotationU2(cube): 0;
+		!rot.P && !rot.two ? rotationU(cube, aff): 0;
+		rot.P && !rot.two ? rotationUP(cube, aff): 0;
+		!rot.P && rot.two ? rotationU2(cube, aff): 0;
 	}
 	if (rot.rotType == 'B')
 	{
-		!rot.P && !rot.two ? rotationB(cube): 0;
-		rot.P && !rot.two ? rotationBP(cube): 0;
-		!rot.P && rot.two ? rotationB2(cube): 0;
+		!rot.P && !rot.two ? rotationB(cube, aff): 0;
+		rot.P && !rot.two ? rotationBP(cube, aff): 0;
+		!rot.P && rot.two ? rotationB2(cube, aff): 0;
 	}
 	if (rot.rotType == 'L')
 	{
-		!rot.P && !rot.two ? rotationL(cube): 0;
-		rot.P && !rot.two ? rotationLP(cube): 0;
-		!rot.P && rot.two ? rotationL2(cube): 0;
+		!rot.P && !rot.two ? rotationL(cube, aff): 0;
+		rot.P && !rot.two ? rotationLP(cube, aff): 0;
+		!rot.P && rot.two ? rotationL2(cube, aff): 0;
 	}
 	if (rot.rotType == 'D')
 	{
-		!rot.P && !rot.two ? rotationD(cube): 0;
-		rot.P && !rot.two ? rotationDP(cube): 0;
-		!rot.P && rot.two ? rotationD2(cube): 0;
+		!rot.P && !rot.two ? rotationD(cube, aff): 0;
+		rot.P && !rot.two ? rotationDP(cube, aff): 0;
+		!rot.P && rot.two ? rotationD2(cube, aff): 0;
 	}
 }
 
-void	doAlgo(t_cube *cube, char *algo, int side)
+void	doAlgo(t_cube *cube, char *algo, int side, int aff)
 {
 	t_rotation	rot;
 	int			i;
@@ -90,6 +90,6 @@ void	doAlgo(t_cube *cube, char *algo, int side)
 		if (algo[i + 1] == '2' || algo[i + 1] == '\'')
 			algo[++i] == '2' ? rot.two = 1 : (rot.P = 1);
 		transformRotation(&rot, side);
-		doRotation(cube, rot);
+		doRotation(cube, rot, aff);
 	}
 }

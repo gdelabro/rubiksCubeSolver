@@ -1,37 +1,37 @@
 #include "../rubik.h"
 
-void	rotationF2(t_cube *cube)
+void	rotationF2(t_cube *cube, int aff)
 {
-	rotationF(cube);
-	rotationF(cube);
+	rotationF(cube, 0);
+	rotationF(cube, 0);
 }
 
-void	rotationR2(t_cube *cube)
+void	rotationR2(t_cube *cube, int aff)
 {
-	rotationR(cube);
-	rotationR(cube);
+	rotationR(cube, 0);
+	rotationR(cube, 0);
 }
 
-void	rotationU2(t_cube *cube)
+void	rotationU2(t_cube *cube, int aff)
 {
-	rotationU(cube);
-	rotationU(cube);
+	rotationU(cube, 0);
+	rotationU(cube, 0);
 }
 
-void	rotationB2(t_cube *cube)
+void	rotationB2(t_cube *cube, int aff)
 {
-	rotationB(cube);
-	rotationB(cube);
+	rotationB(cube, 0);
+	rotationB(cube, 0);
 }
 
-void	rotationL2(t_cube *cube)
+void	rotationL2(t_cube *cube, int aff)
 {
-	rotationL(cube);
-	rotationL(cube);
+	rotationL(cube, 0);
+	rotationL(cube, 0);
 }
 
-void	rotationD2(t_cube *cube)
+void	rotationD2(t_cube *cube, int aff)
 {
-	rotationD(cube);
-	rotationD(cube);
+	rotationD(cube, 0);
+	rotationD(cube, 0);
 }

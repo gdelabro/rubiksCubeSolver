@@ -35,17 +35,23 @@ void	init_cube(t_cube *cube)
 
 void	lunchAlgo(t_cube *cube)
 {
-	showCube(cube);
+	solveWhiteCross(cube);
+	showCross(cube);
 }
 
 int		main(int ac, char **av)
 {
+	int		i;
 	t_cube		cube;
 
 	if (ac < 2)
 		usage();
-	init_cube(&cube);
-	doAlgo(&cube, av[1], 3);
-	lunchAlgo(&cube);
+	i = 0;
+	while (++i < ac)
+	{
+		init_cube(&cube);
+		doAlgo(&cube, av[i], 3, 0);
+		lunchAlgo(&cube);
+	}
 	return (1);
 }

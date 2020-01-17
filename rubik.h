@@ -30,11 +30,20 @@ typedef struct		s_rotation
 	int			two;
 }					t_rotation;
 
+typedef struct		s_arete
+{
+	int			color;
+	int			color2;
+	int			side;
+	int			layer;
+}					t_arete;
+
 void	showCube(t_cube *cube);
+void	showCross(t_cube *cube);
 void	usage();
 
 
-void	doAlgo(t_cube *cube, char *algo, int side);
+void	doAlgo(t_cube *cube, char *algo, int side, int aff);
 
 
 void	rotateFace(int *face);
@@ -42,28 +51,33 @@ void	rotateFace2(int *face);
 void	copyFaceToFace(int src[3][3], int *dest);
 
 
-void	rotationF(t_cube *cube);
-void	rotationFP(t_cube *cube);
-void	rotationF2(t_cube *cube);
+void	rotationF(t_cube *cube, int aff);
+void	rotationFP(t_cube *cube, int aff);
+void	rotationF2(t_cube *cube, int aff);
 
-void	rotationR(t_cube *cube);
-void	rotationRP(t_cube *cube);
-void	rotationR2(t_cube *cube);
+void	rotationR(t_cube *cube, int aff);
+void	rotationRP(t_cube *cube, int aff);
+void	rotationR2(t_cube *cube, int aff);
 
-void	rotationU(t_cube *cube);
-void	rotationUP(t_cube *cube);
-void	rotationU2(t_cube *cube);
+void	rotationU(t_cube *cube, int aff);
+void	rotationUP(t_cube *cube, int aff);
+void	rotationU2(t_cube *cube, int aff);
 
-void	rotationB(t_cube *cube);
-void	rotationBP(t_cube *cube);
-void	rotationB2(t_cube *cube);
+void	rotationB(t_cube *cube, int aff);
+void	rotationBP(t_cube *cube, int aff);
+void	rotationB2(t_cube *cube, int aff);
 
-void	rotationL(t_cube *cube);
-void	rotationLP(t_cube *cube);
-void	rotationL2(t_cube *cube);
+void	rotationL(t_cube *cube, int aff);
+void	rotationLP(t_cube *cube, int aff);
+void	rotationL2(t_cube *cube, int aff);
 
-void	rotationD(t_cube *cube);
-void	rotationDP(t_cube *cube);
-void	rotationD2(t_cube *cube);
+void	rotationD(t_cube *cube, int aff);
+void	rotationDP(t_cube *cube, int aff);
+void	rotationD2(t_cube *cube, int aff);
+
+
+void	solveWhiteCross(t_cube *cube);
+
+void	findArete(t_arete *ar, t_cube *cube);
 
 #endif

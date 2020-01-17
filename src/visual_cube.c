@@ -58,5 +58,24 @@ void	showCube(t_cube *cube)
 	print_face(cube->top);
 	print_3face(cube->left, cube->front, cube->right);
 	print_face(cube->bottom);
+	ft_printf(" \n \n \n");
 	usleep(1000000);
+}
+
+void	showCross(t_cube *cube)
+{
+	//ft_printf("\e[1;1H\e[2J");
+	print_piece(cube->bottom[0][1]);
+	print_piece(cube->bottom[1][2]);
+	ft_printf("\n");
+	print_piece(cube->bottom[2][1]);
+	print_piece(cube->bottom[1][0]);
+	ft_printf("\n");
+	print_piece(cube->back[0][1]);
+	print_piece(cube->left[2][1]);
+	ft_printf("\n");
+	print_piece(cube->right[2][1]);
+	print_piece(cube->front[2][1]);
+	ft_printf("\n");
+	//usleep(100000);
 }

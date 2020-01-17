@@ -1,6 +1,6 @@
 #include "../rubik.h"
 
-void	rotationF(t_cube *cube)
+void	rotationF(t_cube *cube, int aff)
 {
 	rotateFace((int*)&(cube->front));
 
@@ -25,7 +25,7 @@ void	rotationF(t_cube *cube)
 	cube->top[2][2] = cube->buffer[2][2];
 }
 
-void	rotationR(t_cube *cube)
+void	rotationR(t_cube *cube, int aff)
 {
 	rotateFace((int*)&cube->right);
 	
@@ -50,7 +50,7 @@ void	rotationR(t_cube *cube)
 	cube->back[2][2] = cube->buffer[2][2];
 }
 
-void	rotationU(t_cube *cube)
+void	rotationU(t_cube *cube, int aff)
 {
 	rotateFace((int*)&cube->top);
 
@@ -75,7 +75,7 @@ void	rotationU(t_cube *cube)
 	cube->left[0][2] = cube->buffer[0][2];
 }
 
-void	rotationB(t_cube *cube)
+void	rotationB(t_cube *cube, int aff)
 {
 	rotateFace((int*)&cube->back);
 
@@ -100,7 +100,7 @@ void	rotationB(t_cube *cube)
 	cube->left[0][0] = cube->buffer[0][0];
 }
 
-void	rotationL(t_cube *cube)
+void	rotationL(t_cube *cube, int aff)
 {
 	rotateFace((int*)&cube->left);
 
@@ -125,7 +125,7 @@ void	rotationL(t_cube *cube)
 	cube->front[2][0] = cube->buffer[2][0];
 }
 
-void	rotationD(t_cube *cube)
+void	rotationD(t_cube *cube, int aff)
 {
 	rotateFace((int*)&cube->bottom);
 
