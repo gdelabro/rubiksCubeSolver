@@ -37,6 +37,7 @@ void	lunchAlgo(t_cube *cube)
 {
 	solveWhiteCross(cube);
 	showCross(cube);
+	checkCross(cube);
 }
 
 int		main(int ac, char **av)
@@ -47,10 +48,11 @@ int		main(int ac, char **av)
 	if (ac < 2)
 		usage();
 	i = 0;
-	while (++i < ac)
+	while (1)
 	{
 		init_cube(&cube);
-		doAlgo(&cube, av[i], 3, 0);
+		//doAlgo(&cube, av[i], 3, 0);
+		randomScrambler(20, &cube);
 		lunchAlgo(&cube);
 	}
 	return (1);

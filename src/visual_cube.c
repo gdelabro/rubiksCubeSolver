@@ -64,7 +64,7 @@ void	showCube(t_cube *cube)
 
 void	showCross(t_cube *cube)
 {
-	//ft_printf("\e[1;1H\e[2J");
+	ft_printf("\e[1;1H\e[2J");
 	print_piece(cube->bottom[0][1]);
 	print_piece(cube->bottom[1][2]);
 	ft_printf("\n");
@@ -77,5 +77,21 @@ void	showCross(t_cube *cube)
 	print_piece(cube->right[2][1]);
 	print_piece(cube->front[2][1]);
 	ft_printf("\n");
-	//usleep(100000);
+	usleep(100000);
+}
+
+void	checkCross(t_cube *cube)
+{
+	if (cube->bottom[0][1] != WHITE || cube->bottom[1][2] != WHITE
+	|| cube->bottom[2][1] != WHITE || cube->bottom[1][0] != WHITE)
+	{
+		showCube(cube);
+		usage();
+	}
+	if (cube->back[0][1] != GREEN || cube->left[2][1] != ORANGE
+	|| cube->right[2][1] != RED || cube->front[2][1] != BLUE)
+	{
+		showCube(cube);
+		usage();
+	}
 }

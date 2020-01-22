@@ -3,6 +3,7 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <time.h>
 #include "ft_printf/ft_printf.h"
 
 #define WHITE 0
@@ -40,7 +41,9 @@ typedef struct		s_arete
 
 void	showCube(t_cube *cube);
 void	showCross(t_cube *cube);
+void	checkCross(t_cube *cube);
 void	usage();
+void	randomScrambler(int moveNumber, t_cube *cube);
 
 
 void	doAlgo(t_cube *cube, char *algo, int side, int aff);

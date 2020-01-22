@@ -2,7 +2,7 @@ NAME = rubik
 
 SRC_PATH = src
 SRC_NAME = main.c visual_cube.c rotation.c utils_rotation.c rotation2.c\
-rotationPrime.c doAlgo.c findArete.c solve_whitecross.c
+rotationPrime.c doAlgo.c findArete.c solve_whitecross.c randomScrambler.c
 
 OBJ_PATH = obj
 OBJ_NAME = $(SRC_NAME:.c=.o)
