@@ -58,8 +58,8 @@ void	showCube(t_cube *cube)
 	print_face(cube->top);
 	print_3face(cube->left, cube->front, cube->right);
 	print_face(cube->bottom);
-	ft_printf(" \n \n \n");
-	usleep(1000000);
+	ft_printf(".\n.\n.\n");
+	//usleep(500000);
 }
 
 void	showCross(t_cube *cube)
@@ -80,18 +80,20 @@ void	showCross(t_cube *cube)
 	usleep(100000);
 }
 
-void	checkCross(t_cube *cube)
+void	checkFace(t_cube *cube)
 {
 	if (cube->bottom[0][1] != WHITE || cube->bottom[1][2] != WHITE
 	|| cube->bottom[2][1] != WHITE || cube->bottom[1][0] != WHITE)
-	{
-		showCube(cube);
 		usage();
-	}
 	if (cube->back[0][1] != GREEN || cube->left[2][1] != ORANGE
 	|| cube->right[2][1] != RED || cube->front[2][1] != BLUE)
-	{
-		showCube(cube);
 		usage();
-	}
+	if (cube->bottom[0][0] != WHITE || cube->front[2][0] != BLUE)
+		usage();
+	if (cube->bottom[2][0] != WHITE || cube->left[2][0] != ORANGE)
+		usage();
+	if (cube->bottom[2][2] != WHITE || cube->back[0][2] != GREEN)
+		usage();
+	if (cube->bottom[0][2] != WHITE || cube->right[2][0] != RED)
+		usage();
 }

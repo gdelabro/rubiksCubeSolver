@@ -35,13 +35,14 @@ typedef struct		s_arete
 {
 	int			color;
 	int			color2;
+	int			color3;
 	int			side;
 	int			layer;
 }					t_arete;
 
 void	showCube(t_cube *cube);
 void	showCross(t_cube *cube);
-void	checkCross(t_cube *cube);
+void	checkFace(t_cube *cube);
 void	usage();
 void	randomScrambler(int moveNumber, t_cube *cube);
 
@@ -80,7 +81,9 @@ void	rotationD2(t_cube *cube, int aff);
 
 
 void	solveWhiteCross(t_cube *cube);
+void	solveWhiteFace(t_cube *cube);
 
 void	findArete(t_arete *ar, t_cube *cube);
+void	findCorner(t_arete *ar, t_cube *cube);
 
 #endif

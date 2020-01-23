@@ -36,8 +36,10 @@ void	init_cube(t_cube *cube)
 void	lunchAlgo(t_cube *cube)
 {
 	solveWhiteCross(cube);
-	showCross(cube);
-	checkCross(cube);
+	//showCube(cube);
+	solveWhiteFace(cube);
+	//showCube(cube);
+	checkFace(cube);
 }
 
 int		main(int ac, char **av)
@@ -45,13 +47,16 @@ int		main(int ac, char **av)
 	int		i;
 	t_cube		cube;
 
-	if (ac < 2)
-		usage();
 	i = 0;
-	while (1)
+	while (ac != 1 && ++i < ac)
 	{
 		init_cube(&cube);
-		//doAlgo(&cube, av[i], 3, 0);
+		doAlgo(&cube, av[i], 0, 0);
+		lunchAlgo(&cube);
+	}
+	while (ac == 1)
+	{
+		init_cube(&cube);
 		randomScrambler(20, &cube);
 		lunchAlgo(&cube);
 	}
