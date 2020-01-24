@@ -31,15 +31,16 @@ void	init_cube(t_cube *cube)
 			}
 		}
 	}
+	cube->count = 0;
 }
 
 void	lunchAlgo(t_cube *cube)
 {
 	solveWhiteCross(cube);
-	//showCube(cube);
 	solveWhiteFace(cube);
-	//showCube(cube);
-	checkFace(cube);
+	solveSecondLayer(cube);
+	checkCube(cube);
+	ft_printf("nombre de coups: %d\n", cube->count);
 }
 
 int		main(int ac, char **av)

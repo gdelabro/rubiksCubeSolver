@@ -79,21 +79,3 @@ void	showCross(t_cube *cube)
 	ft_printf("\n");
 	usleep(100000);
 }
-
-void	checkFace(t_cube *cube)
-{
-	if (cube->bottom[0][1] != WHITE || cube->bottom[1][2] != WHITE
-	|| cube->bottom[2][1] != WHITE || cube->bottom[1][0] != WHITE)
-		usage();
-	if (cube->back[0][1] != GREEN || cube->left[2][1] != ORANGE
-	|| cube->right[2][1] != RED || cube->front[2][1] != BLUE)
-		usage();
-	if (cube->bottom[0][0] != WHITE || cube->front[2][0] != BLUE)
-		usage();
-	if (cube->bottom[2][0] != WHITE || cube->left[2][0] != ORANGE)
-		usage();
-	if (cube->bottom[2][2] != WHITE || cube->back[0][2] != GREEN)
-		usage();
-	if (cube->bottom[0][2] != WHITE || cube->right[2][0] != RED)
-		usage();
-}

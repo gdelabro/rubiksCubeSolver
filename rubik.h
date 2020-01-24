@@ -6,12 +6,14 @@
 #include <time.h>
 #include "ft_printf/ft_printf.h"
 
-#define WHITE 0
-#define YELLOW 1
-#define BLUE 2
-#define GREEN 3
-#define ORANGE 4
-#define RED 5
+#define WHITE -1
+#define YELLOW -2
+#define BLUE 0
+#define GREEN 2
+#define ORANGE 3
+#define RED 1
+#define a 0
+
 
 typedef struct		s_cube
 {
@@ -22,6 +24,7 @@ typedef struct		s_cube
 	int			left[3][3];			//orange
 	int			right[3][3];		//red
 	int			buffer[3][3];		//rotation buffer
+	int			count;
 }					t_cube;
 
 typedef struct		s_rotation
@@ -42,7 +45,8 @@ typedef struct		s_arete
 
 void	showCube(t_cube *cube);
 void	showCross(t_cube *cube);
-void	checkFace(t_cube *cube);
+void	checkCube(t_cube *cube);
+int		checkSecondLayer(t_cube *cube);
 void	usage();
 void	randomScrambler(int moveNumber, t_cube *cube);
 
@@ -82,6 +86,7 @@ void	rotationD2(t_cube *cube, int aff);
 
 void	solveWhiteCross(t_cube *cube);
 void	solveWhiteFace(t_cube *cube);
+void	solveSecondLayer(t_cube *cube);
 
 void	findArete(t_arete *ar, t_cube *cube);
 void	findCorner(t_arete *ar, t_cube *cube);
