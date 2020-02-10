@@ -87,6 +87,10 @@ void	rotationD2(t_cube *cube, int aff);
 void	solveWhiteCross(t_cube *cube);
 void	solveWhiteFace(t_cube *cube);
 void	solveSecondLayer(t_cube *cube);
+void	solveYellowCross(t_cube *cube);
+void	solveYellowFace(t_cube *cube);
+void	orientCorners(t_cube *cube);
+void	orientMiddle(t_cube *cube);
 
 void	findArete(t_arete *ar, t_cube *cube);
 void	findCorner(t_arete *ar, t_cube *cube);

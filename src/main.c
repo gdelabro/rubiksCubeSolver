@@ -39,13 +39,17 @@ void	lunchAlgo(t_cube *cube)
 	solveWhiteCross(cube);
 	solveWhiteFace(cube);
 	solveSecondLayer(cube);
+	solveYellowCross(cube);
+	solveYellowFace(cube);
+	orientCorners(cube);
+	orientMiddle(cube);
 	checkCube(cube);
 	ft_printf("nombre de coups: %d\n", cube->count);
 }
 
 int		main(int ac, char **av)
 {
-	int		i;
+	int			i;
 	t_cube		cube;
 
 	i = 0;
