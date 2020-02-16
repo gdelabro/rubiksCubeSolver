@@ -20,6 +20,7 @@ typedef struct		s_pars
 	int			random; //-rxx        affiche le melange de xx coup
 	int			count; //-c           afficher nombre de coup
 	int			visual;//-v           peut etre faire 2 modes, dont un qui affiche seulement les etapes
+	int			stat; //-t            affiche des stats
 	int			i;
 }					t_pars;
 
@@ -33,6 +34,10 @@ typedef struct		s_cube
 	int			right[3][3];		//red
 	int			buffer[3][3];		//rotation buffer
 	int			count;
+	int			countall;
+	int			lowestcount;
+	int			biggestcount;
+	int			cubeNumber;
 	t_pars		p;
 }					t_cube;
 
@@ -55,7 +60,6 @@ typedef struct		s_arete
 void	parser(t_cube *cube, char **av);
 
 void	showCube(t_cube *cube);
-void	showCross(t_cube *cube);
 void	checkCube(t_cube *cube);
 int		checkSecondLayer(t_cube *cube);
 void	usage();

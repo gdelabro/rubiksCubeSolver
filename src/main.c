@@ -38,6 +38,20 @@ void	init_cube(t_cube *cube)
 	cube->count = 0;
 }
 
+void	doStats(t_cube *cube)
+{
+	++cube->cubeNumber;
+	cube->count < cube->lowestcount ? cube->lowestcount = cube->count : 0;
+	cube->count > cube->biggestcount ? cube->biggestcount = cube->count : 0;
+	cube->countall += cube->count;
+	cube->p.count ? ft_printf("nombre de coups: %d\n", cube->count) : 0;
+	cube->p.stat && cube->cubeNumber == 100 ? ft_printf("Stats:\n\taverage: %d\
+\n\tthe more turns solve: %d\n\tthe less turns solve: %d\n",
+	cube->countall / cube->cubeNumber,
+	cube->biggestcount, cube->lowestcount) : 0;
+	cube->cubeNumber == 100 ? cube->p.infinite = 0 : 0;
+}
+
 void	lunchAlgo(t_cube *cube)
 {
 	cube->p.visual ? showCube(cube) : 0;
@@ -56,7 +70,7 @@ void	lunchAlgo(t_cube *cube)
 	orientMiddle(cube);
 	cube->p.visual == 2 ? showCube(cube) : 0;
 	checkCube(cube);
-	cube->p.count ? ft_printf("nombre de coups: %d\n", cube->count) : 0;
+	doStats(cube);
 }
 
 int		main(int ac, char **av)

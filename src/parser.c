@@ -7,7 +7,12 @@ void	init_parser(t_cube *cube)
 	cube->p.random = 0;
 	cube->p.count = 0;
 	cube->p.visual = 0;
+	cube->p.stat = 0;
 	cube->p.i = 0;
+	cube->countall = 0;
+	cube->lowestcount = 1000;
+	cube->biggestcount = 0;
+	cube->cubeNumber = 0;
 }
 
 void	parser(t_cube *cube, char **av)
@@ -41,13 +46,15 @@ void	parser(t_cube *cube, char **av)
 			while (av[cube->p.i][++i])
 			{
 				c = av[cube->p.i][i];
-				if (c != 'c' && c != 's' && c != 'v' && c != 'w')
+				if (c != 'c' && c != 's' && c != 'v' && c != 'w' && c != 't')
 					usage();
 				c == 'c' ? cube->p.count = 1 : 0;
 				c == 's' ? cube->p.silent = 1 : 0;
 				c == 'v' ? cube->p.visual = 1 : 0;
 				c == 'w' ? cube->p.visual = 2 : 0;
+				c == 't' ? cube->p.stat = 1 : 0;
 			}
 		}
 	}
+	cube->p.stat && !cube->p.infinite ? cube->p.infinite = 20 : 0;
 }

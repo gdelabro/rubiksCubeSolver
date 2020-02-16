@@ -124,7 +124,7 @@ void	solveBlueWhite(t_cube *cube)
 	else
 	{
 		ar.layer == 0 ? doAlgo(cube, "F' L", ar.side, 1) : 0;
-		ar.layer == 1 ? doAlgo(cube, "R", ar.side, 1) : 0;
+		ar.layer == 1 ? doAlgo(cube, "R'", ar.side, 1) : 0;
 		ar.layer == 2 ? doAlgo(cube, "F L", ar.side, 1) : 0;
 		ar.layer == 3 ? doAlgo(cube, "L", ar.side, 1) : 0;
 		solveBlueWhite(cube);
