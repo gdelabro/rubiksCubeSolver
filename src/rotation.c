@@ -24,6 +24,7 @@ void	rotationF(t_cube *cube, int aff)
 	cube->top[2][1] = cube->buffer[2][1];
 	cube->top[2][2] = cube->buffer[2][2];
 	!cube->p.silent && aff ? ft_printf("F\n") : 0;
+	cube->p.visual == 1 && aff ? showCube(cube) : 0;
 	aff ? cube->count++ : 0;
 }
 
@@ -51,6 +52,7 @@ void	rotationR(t_cube *cube, int aff)
 	cube->back[1][2] = cube->buffer[1][2];
 	cube->back[2][2] = cube->buffer[2][2];
 	!cube->p.silent && aff ? ft_printf("R\n") : 0;
+	cube->p.visual == 1 && aff ? showCube(cube) : 0;
 	aff ? cube->count++ : 0;
 }
 
@@ -78,6 +80,7 @@ void	rotationU(t_cube *cube, int aff)
 	cube->left[0][1] = cube->buffer[0][1];
 	cube->left[0][2] = cube->buffer[0][2];
 	!cube->p.silent && aff ? ft_printf("U\n") : 0;
+	cube->p.visual == 1 && aff ? showCube(cube) : 0;
 	aff ? cube->count++ : 0;
 }
 
@@ -105,6 +108,7 @@ void	rotationB(t_cube *cube, int aff)
 	cube->left[1][0] = cube->buffer[1][0];
 	cube->left[0][0] = cube->buffer[0][0];
 	!cube->p.silent && aff ? ft_printf("B\n") : 0;
+	cube->p.visual == 1 && aff ? showCube(cube) : 0;
 	aff ? cube->count++ : 0;
 }
 
@@ -132,6 +136,7 @@ void	rotationL(t_cube *cube, int aff)
 	cube->front[1][0] = cube->buffer[1][0];
 	cube->front[2][0] = cube->buffer[2][0];
 	!cube->p.silent && aff ? ft_printf("L\n") : 0;
+	cube->p.visual == 1 && aff ? showCube(cube) : 0;
 	aff ? cube->count++ : 0;
 }
 
@@ -159,5 +164,6 @@ void	rotationD(t_cube *cube, int aff)
 	cube->right[2][1] = cube->buffer[2][1];
 	cube->right[2][2] = cube->buffer[2][2];
 	!cube->p.silent && aff ? ft_printf("D\n") : 0;
+	cube->p.visual == 1 && aff ? showCube(cube) : 0;
 	aff ? cube->count++ : 0;
 }

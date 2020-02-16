@@ -40,11 +40,20 @@ void	init_cube(t_cube *cube)
 
 void	lunchAlgo(t_cube *cube)
 {
+	cube->p.visual ? showCube(cube) : 0;
 	solveWhiteCross(cube);
 	cube->p.visual == 2 ? showCube(cube) : 0;
 	solveWhiteFace(cube);
 	cube->p.visual == 2 ? showCube(cube) : 0;
 	solveSecondLayer(cube);
+	cube->p.visual == 2 ? showCube(cube) : 0;
+	solveYellowCross(cube);
+	cube->p.visual == 2 ? showCube(cube) : 0;
+	solveYellowFace(cube);
+	cube->p.visual == 2 ? showCube(cube) : 0;
+	orientCorners(cube);
+	cube->p.visual == 2 ? showCube(cube) : 0;
+	orientMiddle(cube);
 	cube->p.visual == 2 ? showCube(cube) : 0;
 	checkCube(cube);
 	cube->p.count ? ft_printf("nombre de coups: %d\n", cube->count) : 0;
@@ -52,7 +61,7 @@ void	lunchAlgo(t_cube *cube)
 
 int		main(int ac, char **av)
 {
-	int		i;
+	int			i;
 	t_cube		cube;
 
 	parser(&cube, av);

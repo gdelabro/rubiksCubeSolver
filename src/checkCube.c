@@ -31,8 +31,32 @@ void	checkWhiteFace(t_cube *cube)
 		usage();
 }
 
+void	checkYellowFace(t_cube *cube)
+{
+	if (cube->top[0][1] != YELLOW || cube->top[1][2] != YELLOW
+	|| cube->top[2][1] != YELLOW || cube->top[1][0] != YELLOW)
+		usage();
+	if (cube->top[0][0] != YELLOW || cube->top[0][2] != YELLOW
+	|| cube->top[2][0] != YELLOW || cube->top[2][2] != YELLOW)
+		usage();
+}
+
+void	checkLastLayer(t_cube *cube)
+{
+	if (cube->front[0][0] != cube->front[0][2] || cube->front[0][1] != BLUE)
+		usage();
+	if (cube->right[0][0] != cube->right[0][2] || cube->right[0][1] != RED)
+		usage();
+	if (cube->back[2][0] != cube->back[2][2]  || cube->back[2][1] != GREEN)
+		usage();
+	if (cube->left[0][0] != cube->left[0][2] || cube->left[0][1] != ORANGE)
+		usage();
+}
+
 void	checkCube(t_cube *cube)
 {
 	checkWhiteFace(cube);
 	!checkSecondLayer(cube) ? usage() : 0;
+	checkYellowFace(cube);
+	checkLastLayer(cube);
 }
