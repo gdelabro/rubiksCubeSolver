@@ -2,8 +2,12 @@
 
 void	usage()
 {
-	ft_printf("./rubik \"SCRAMBLE\"\nSCRAMBLE commands:\n\tF R U B L D\n\
-command suffix:\n\t': turn the other way\n\t2: turn twice\n");
+	ft_printf("./rubik -csvw -rXX -iXX \"SCRAMBLE\"\n\
+SCRAMBLE commands:\n\tF R U B L D\ncommand suffix:\n\
+\t': turn the other way\n\t2: turn twice\nOptions:\n\
+\t-c\tcount number of turn\n\t-s\tsilent mode\n\t-v\tvisual every turn\n\
+\t-w\tvisual every step\n\t-rXX\trandom scramble of XX moves\n\t-iXX\t\
+infinite random scrambles of XX moves\nXX is 99 maximum\n");
 	exit(0);
 }
 
@@ -37,10 +41,13 @@ void	init_cube(t_cube *cube)
 void	lunchAlgo(t_cube *cube)
 {
 	solveWhiteCross(cube);
+	cube->p.visual == 2 ? showCube(cube) : 0;
 	solveWhiteFace(cube);
+	cube->p.visual == 2 ? showCube(cube) : 0;
 	solveSecondLayer(cube);
+	cube->p.visual == 2 ? showCube(cube) : 0;
 	checkCube(cube);
-	ft_printf("nombre de coups: %d\n", cube->count);
+	cube->p.count ? ft_printf("nombre de coups: %d\n", cube->count) : 0;
 }
 
 int		main(int ac, char **av)
@@ -48,17 +55,26 @@ int		main(int ac, char **av)
 	int		i;
 	t_cube		cube;
 
-	i = 0;
-	while (ac != 1 && ++i < ac)
+	parser(&cube, av);
+	if (ac == 1 || (!av[cube.p.i] && !cube.p.random && !cube.p.infinite))
+		usage();
+	--cube.p.i;
+	while (av[++cube.p.i])
 	{
 		init_cube(&cube);
-		doAlgo(&cube, av[i], 0, 0);
+		doAlgo(&cube, av[cube.p.i], 0, 0);
 		lunchAlgo(&cube);
 	}
-	while (ac == 1)
+	if (cube.p.random)
 	{
 		init_cube(&cube);
-		randomScrambler(20, &cube);
+		randomScrambler(cube.p.random, &cube);
+		lunchAlgo(&cube);
+	}
+	while (cube.p.infinite)
+	{
+		init_cube(&cube);
+		randomScrambler(cube.p.infinite, &cube);
 		lunchAlgo(&cube);
 	}
 	return (1);

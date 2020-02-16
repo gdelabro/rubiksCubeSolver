@@ -12,8 +12,16 @@
 #define GREEN 2
 #define ORANGE 3
 #define RED 1
-#define a 0
 
+typedef struct		s_pars
+{
+	int			silent;  // -s        n'affiche pas chaque coup
+	int			infinite; //-ixx      aff melange + random scramble illiminte
+	int			random; //-rxx        affiche le melange de xx coup
+	int			count; //-c           afficher nombre de coup
+	int			visual;//-v           peut etre faire 2 modes, dont un qui affiche seulement les etapes
+	int			i;
+}					t_pars;
 
 typedef struct		s_cube
 {
@@ -25,6 +33,7 @@ typedef struct		s_cube
 	int			right[3][3];		//red
 	int			buffer[3][3];		//rotation buffer
 	int			count;
+	t_pars		p;
 }					t_cube;
 
 typedef struct		s_rotation
@@ -42,6 +51,8 @@ typedef struct		s_arete
 	int			side;
 	int			layer;
 }					t_arete;
+
+void	parser(t_cube *cube, char **av);
 
 void	showCube(t_cube *cube);
 void	showCross(t_cube *cube);

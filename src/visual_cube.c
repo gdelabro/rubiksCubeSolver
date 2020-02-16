@@ -46,7 +46,7 @@ void	print_3face(int face[3][3], int face2[3][3], int face3[3][3])
 		i2 = -1;
 		while (++i2 < 3)
 			print_piece(face3[i][i2]);
-			ft_printf("\n");
+		ft_printf("\n");
 	}
 	ft_printf("\n");
 }
@@ -58,8 +58,8 @@ void	showCube(t_cube *cube)
 	print_face(cube->top);
 	print_3face(cube->left, cube->front, cube->right);
 	print_face(cube->bottom);
-	ft_printf(".\n.\n.\n");
-	//usleep(500000);
+	ft_printf("\n");
+	cube->p.visual == 2 ? usleep(500000) : 0;
 }
 
 void	showCross(t_cube *cube)
