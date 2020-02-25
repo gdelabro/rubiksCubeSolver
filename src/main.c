@@ -2,10 +2,11 @@
 
 void	usage()
 {
-	ft_printf("./rubik -csvw -rXX -iXX \"SCRAMBLE\"\n\
+	ft_printf("./rubik -csvw -rXX -iXX \"SCRAMBLE\"...\n\
 SCRAMBLE commands:\n\tF R U B L D\ncommand suffix:\n\
 \t': turn the other way\n\t2: turn twice\nOptions:\n\
 \t-c\tcount number of turn\n\t-s\tsilent mode\n\t-v\tvisual every turn\n\
+\t-t\tshow statistics over 100 random scrambles\n\
 \t-w\tvisual every step\n\t-rXX\trandom scramble of XX moves\n\t-iXX\t\
 infinite random scrambles of XX moves\nXX is 99 maximum\n");
 	exit(0);
@@ -49,7 +50,7 @@ void	doStats(t_cube *cube)
 \n\tthe more turns solve: %d\n\tthe less turns solve: %d\n",
 	cube->countall / cube->cubeNumber,
 	cube->biggestcount, cube->lowestcount) : 0;
-	cube->cubeNumber == 100 ? cube->p.infinite = 0 : 0;
+	cube->cubeNumber == 100 && cube->p.stat ? cube->p.infinite = 0 : 0;
 }
 
 void	lunchAlgo(t_cube *cube)
