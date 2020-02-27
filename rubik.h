@@ -6,6 +6,8 @@
 #include <time.h>
 #include "ft_printf/ft_printf.h"
 
+#define SEPARATOR "\n"
+
 #define WHITE -1
 #define YELLOW -2
 #define BLUE 0
@@ -19,7 +21,7 @@ typedef struct		s_pars
 	int			infinite; //-ixx      aff melange + random scramble illiminte
 	int			random; //-rxx        affiche le melange de xx coup
 	int			count; //-c           afficher nombre de coup
-	int			visual;//-v           peut etre faire 2 modes, dont un qui affiche seulement les etapes
+	int			visual;//-vw          peut etre faire 2 modes, dont un qui affiche seulement les etapes
 	int			stat; //-t            affiche des stats
 	int			i;
 }					t_pars;

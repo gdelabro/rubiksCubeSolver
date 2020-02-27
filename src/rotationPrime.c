@@ -23,7 +23,7 @@ void	rotationFP(t_cube *cube, int aff)
 	cube->left[0][2] = cube->buffer[0][2];
 	cube->left[1][2] = cube->buffer[1][2];
 	cube->left[2][2] = cube->buffer[2][2];
-	!cube->p.silent && aff ? ft_printf("F'\n") : 0;
+	!cube->p.silent && aff ? ft_printf("F'"SEPARATOR) : 0;
 	cube->p.visual == 1 && aff ? showCube(cube) : 0;
 	aff ? cube->count++ : 0;
 }
@@ -51,7 +51,7 @@ void	rotationRP(t_cube *cube, int aff)
 	cube->front[0][2] = cube->buffer[0][2];
 	cube->front[1][2] = cube->buffer[1][2];
 	cube->front[2][2] = cube->buffer[2][2];
-	!cube->p.silent && aff ? ft_printf("R'\n") : 0;
+	!cube->p.silent && aff ? ft_printf("R'"SEPARATOR) : 0;
 	cube->p.visual == 1 && aff ? showCube(cube) : 0;
 	aff ? cube->count++ : 0;
 }
@@ -79,7 +79,7 @@ void	rotationUP(t_cube *cube, int aff)
 	cube->right[0][0] = cube->buffer[0][0];
 	cube->right[0][1] = cube->buffer[0][1];
 	cube->right[0][2] = cube->buffer[0][2];
-	!cube->p.silent && aff ? ft_printf("U'\n") : 0;
+	!cube->p.silent && aff ? ft_printf("U'"SEPARATOR) : 0;
 	cube->p.visual == 1 && aff ? showCube(cube) : 0;
 	aff ? cube->count++ : 0;
 }
@@ -107,7 +107,7 @@ void	rotationBP(t_cube *cube, int aff)
 	cube->right[0][2] = cube->buffer[0][2];
 	cube->right[1][2] = cube->buffer[1][2];
 	cube->right[2][2] = cube->buffer[2][2];
-	!cube->p.silent && aff ? ft_printf("B'\n") : 0;
+	!cube->p.silent && aff ? ft_printf("B'"SEPARATOR) : 0;
 	cube->p.visual == 1 && aff ? showCube(cube) : 0;
 	aff ? cube->count++ : 0;
 }
@@ -135,7 +135,7 @@ void	rotationLP(t_cube *cube, int aff)
 	cube->back[0][0] = cube->buffer[0][0];
 	cube->back[1][0] = cube->buffer[1][0];
 	cube->back[2][0] = cube->buffer[2][0];
-	!cube->p.silent && aff ? ft_printf("L'\n") : 0;
+	!cube->p.silent && aff ? ft_printf("L'"SEPARATOR) : 0;
 	cube->p.visual == 1 && aff ? showCube(cube) : 0;
 	aff ? cube->count++ : 0;
 }
@@ -163,7 +163,7 @@ void	rotationDP(t_cube *cube, int aff)
 	cube->left[2][0] = cube->buffer[2][0];
 	cube->left[2][1] = cube->buffer[2][1];
 	cube->left[2][2] = cube->buffer[2][2];
-	!cube->p.silent && aff ? ft_printf("D'\n") : 0;
+	!cube->p.silent && aff ? ft_printf("D'"SEPARATOR) : 0;
 	cube->p.visual == 1 && aff ? showCube(cube) : 0;
 	aff ? cube->count++ : 0;
 }

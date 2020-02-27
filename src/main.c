@@ -41,6 +41,8 @@ void	init_cube(t_cube *cube)
 
 void	doStats(t_cube *cube)
 {
+	if (!cube->p.silent && SEPARATOR[0] != '\n' && cube->count)
+		ft_printf("\n");
 	++cube->cubeNumber;
 	cube->count < cube->lowestcount ? cube->lowestcount = cube->count : 0;
 	cube->count > cube->biggestcount ? cube->biggestcount = cube->count : 0;
